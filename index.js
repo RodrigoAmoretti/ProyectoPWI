@@ -47,7 +47,35 @@ app.get("/", (req, res, next) => {
 });
 
 app.get("/formulario", (req, res, next) => {
-  res.render("formulario")
+  res.render("formulario", {
+    titulo: "Formulario para productos"
+  })
+});
+
+app.post("/formulario", (req, res) =>{
+  const {nombre, precio} = req.body;
+  console.log(nombre,precio);
+  if (nombre == "" || precio == "") {
+    let validacion = "Rellene los campos correctamente.";
+    res.render("formulario", {
+      titulo: "Formulario para productos",
+      validacion
+    })    
+  } else{
+
+      let datos = {
+        nombre: nombre,
+        precio: precio
+      };
+
+      let sql = "INSERT INTO producto SET ?";
+      conexion.query(sql, datos, (err,result) => {
+        if (err) throw err;
+        res.render("formulario", {
+          titulo: "Formulario para productos"
+        });
+      })
+  }
 });
 
 
