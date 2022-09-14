@@ -52,6 +52,19 @@ app.get("/formulario", (req, res, next) => {
   })
 });
 
+app.get("/productos", (req, res, next) => {
+
+  let sql = "SELECT * FROM producto";
+  conexion.query(sql, (err,result) => {
+    if (err) throw err;
+    res.render("productos", {
+      titulo: "Productos en stock",
+      results: result,
+    });
+  });
+});
+
+
 app.post("/formulario", (req, res) =>{
   const {nombre, precio} = req.body;
   console.log(nombre,precio);
@@ -74,7 +87,7 @@ app.post("/formulario", (req, res) =>{
         res.render("formulario", {
           titulo: "Formulario para productos"
         });
-      })
+      });
   }
 });
 
