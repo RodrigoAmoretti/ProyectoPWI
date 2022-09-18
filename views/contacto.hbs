@@ -1,0 +1,33 @@
+
+<br><br><br><br>
+<div class="container">
+
+<div class="text-center m-5">
+    <h3>Dejanos tus datos y un sensei se va a contactar con vos para que te unas a nuestro equipo</h3>
+</div>
+
+<div class="row">
+<form action="./contacto" method="post">
+    <div class="mb-3 row">
+    <label for="nombre" class="col-sm-2 col-form-label"></label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre"/>
+    </div>
+    </div>
+    <div class="mb-3 row">
+    <label for="email" class="col-sm-2 col-form-label" ></label>
+    <div class="col-sm-10">
+        <input type="email" name="email" class="form-control" id="email" placeholder="Email" />
+    </div>
+    </div>
+    <div class="mb-3 text-center">
+        <input type="submit" class="button btn btn-success w-50 p-2" value="Quiero ser un cobra kai!">
+    </div>
+    <div class="text-center">
+        <h2 class="text-danger">
+            {{validacion}}
+        </h2>
+    </div>
+</form>
+</div>
+</div>

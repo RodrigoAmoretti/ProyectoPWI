@@ -7,7 +7,7 @@ body{
 
 h1{
     font-size: 72px;
-    background: -webkit-linear-gradient(#eee, #333);
+    background: white;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -15,27 +15,40 @@ h1{
 h2{
 
     
-    background: -webkit-linear-gradient(#eee, #333);
+    background: white;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
 }
 
+h3{
+
+    
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
 h6{
 
     
-    background: -webkit-linear-gradient(#eee, #333);
+    background: white;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .foto__equipo{
 
-    max-width: 700px;
-    max-height: 1000px;
-    min-width: 700px;
-    min-height: 1000px;
+    max-width: 400px;
+    max-height: 400px;
+    min-width: 400px;
+    min-height: 400px;
+    padding: 25px 25px 25px 25px;
 }
+
+
+
 
 #navbar{
 
@@ -60,7 +73,7 @@ h6{
    
 
    /* Child Text Container */
-   .content_img div{
+  .content_img div{
     position: absolute;
     bottom: 0;
     right: 0;
@@ -75,44 +88,46 @@ h6{
 }
 
 /* Hover on Parent Container */
-   .content_img:hover{
+.content_img:hover{
     cursor: pointer;
 }
-   
-   .content_img:hover div{
+
+  .content_img:hover div{
     width: 150px;
     padding: 8px 15px;
     visibility: visible;
     opacity: 0.7; 
 }
 
-/*imagenes con texto hover*/
+/*imagenes con texto hover END*/
 
 
 /*lista de beneficios*/
 
 .beneficios{
 text-decoration: underline;
+text-decoration-color: white;
 font-weight: bold;
 font-size: larger;
-background: -webkit-linear-gradient(#eee, #333);
+background: white;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 }
 
 
 .lista_beneficios{
-    background: -webkit-linear-gradient(#eee, #333);
+    background: white;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/*lista de beneficios*/
+/*lista de beneficios END*/
 
 .fuente{
-    background: -webkit-linear-gradient(#eee, #333);
+    background: white;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    padding: 25px 25px 25px 25px
 }
 
 .wrapper {
@@ -149,4 +164,11 @@ background: -webkit-linear-gradient(#eee, #333);
   #item7{
     grid-row: 7;
     grid-column:6;
+  }
+
+
+  #warning{
+    color: red!important;
+    text-align: center;
+    font-weight: bold;
   }
