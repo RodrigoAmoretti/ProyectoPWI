@@ -106,7 +106,7 @@ app.post ("/contacto", (req, res) =>{
         secure: true,
         auth: {
           user: process.env.USEREMAIL,
-          pass: "orupfhdfebclwrwd"
+          pass: process.env.PASSMAIL
         }
       });
       let envio = await transporter.sendMail({
