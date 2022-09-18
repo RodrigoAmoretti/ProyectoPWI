@@ -4,18 +4,16 @@ const path = require("path");
 const hbs = require("hbs");
 const mysql = require("mysql2");
 const nodemailer = require("nodemailer");
-const { request } = require('express');
-const { subtle } = require('crypto');
 const app = express();
-const PORT = 3000 || 8080;
+const PORT = process.env.PORT || 8080;
 
 
 //conexion a base de datos
 const conexion = mysql.createConnection({
-  //host: "127.0.0.1",
-  //user: "root",
-  //password: "lalala123",
-  //database: "DOJO",
+  host: process.env.HOST,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE,
 });
 
 conexion.connect((err) => {
@@ -23,7 +21,7 @@ conexion.connect((err) => {
     console.error(`error en la conexion: ${err.stack}`)
     return;
   }
-  //console.log(`conectado a la base de datos dojo`);
+  console.log(`conectado a la base de datos dojo`);
 });
 
 //middlewares
@@ -99,20 +97,20 @@ app.post ("/contacto", (req, res) =>{
       validacion
     })    
   } else{
-    //console.log(nombre);
-    //console.log(email);
+    console.log(nombre);
+    console.log(email);
     async function envioMail(){
       let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 465,
         secure: true,
         auth: {
-          //user: "rodrigoamoretti695@gmail.com",
+          user: process.env.USEREMAIL,
           pass: "orupfhdfebclwrwd"
         }
       });
       let envio = await transporter.sendMail({
-        //from: "rodrigoamoretti695@gmail.com",
+        from: process.env.USEREMAIL,
         to: `${email}`,
         subject:"COBRA KAI NEVER DIES!",
         html:"Lo sentimos pero no estamos tomando nuevos alumnos, quizas quieras probar en un dojo de Miyagi-do."
@@ -158,7 +156,7 @@ app.post("/formulario", (req, res) =>{
 
 
 app.listen(PORT, () => {
-  //console.log(`el servidor esta trabajando en el puerto ${PORT}`);
+  console.log(`el servidor esta trabajando en el puerto ${PORT}`);
 });
 
 
